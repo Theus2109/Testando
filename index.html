@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Portal do Servidor</title>
+    <style>
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            background: linear-gradient(135deg, #0f2027, #203a43, #2c5364);
+            color: white;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            margin: 0;
+        }
+        .card {
+            background: rgba(255, 255, 255, 0.05);
+            padding: 40px;
+            border-radius: 15px;
+            box-shadow: 0 8px 32px 0 rgba(0, 0, 0, 0.37);
+            backdrop-filter: blur(10px);
+            -webkit-backdrop-filter: blur(10px);
+            border: 1px solid rgba(255, 255, 255, 0.18);
+            text-align: center;
+            width: 300px;
+        }
+        h2 { margin-top: 0; font-weight: 300; letter-spacing: 2px; }
+        p { font-size: 0.9em; color: #ccc; margin-bottom: 30px; }
+        .btn {
+            background: #00d2ff;
+            color: #000;
+            border: none;
+            padding: 12px 20px;
+            font-weight: bold;
+            border-radius: 8px;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            width: 100%;
+            margin-bottom: 15px;
+            font-size: 1em;
+        }
+        .btn:hover { background: #3a7bd5; color: white; transform: translateY(-2px); }
+        .btn-tail { background: #4a4e69; color: white; }
+        .btn-tail:hover { background: #22223b; }
+    </style>
+</head>
+<body>
+
+    <div class="card">
+        <h2>MEU SERVIDOR</h2>
+        <p>Selecione a sua forma de ligação</p>
+        
+        <!-- Botões de Acesso -->
+        <button class="btn" onclick="conectar('local')">Conexão Wi-Fi (Local)</button>
+        <button class="btn btn-tail" onclick="conectar('tailscale')">Conexão Global (Tailscale)</button>
+    </div>
+
+    <script>
+        function conectar(tipo) {
+            // SUBSTITUA ESTES VALORES PELOS SEUS IPS REAIS
+            const ipLocal = "192.168.x.x"; 
+            const ipTailscale = "100.x.x.x"; 
+            const porta = "2121";
+
+            if (tipo === 'local') {
+                window.location.href = `http://${ipLocal}:${porta}`;
+            } else {
+                window.location.href = `http://${ipTailscale}:${porta}`;
+            }
+        }
+    </script>
+
+</body>
+</html>
